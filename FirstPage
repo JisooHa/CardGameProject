@@ -1,0 +1,81 @@
+package Login;
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import javax.swing.event.*;
+
+public class FirstPage extends JFrame implements ActionListener{
+	private JLabel textLabel, imageLabel;
+	private JButton single, multi, exit;
+	private JPanel centerPane, southPane, northPane, eastPane, westPane, southPaneBtn;
+
+	
+	public FirstPage(){
+		this.setTitle("짝 맞추기 게임 - by.PLUS");
+		this.setSize(450, 500);	//setSize 창의 크기 지정하는 메소드
+		this.setLocation(200,200);	//윈도우화면에서 창의 위치정하는 메소드(좌표 x, y)
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); //창 닫을때 프로그램 종료시킴
+		this.setLayout(new BorderLayout());
+		
+		
+		single = new JButton("혼자하기");
+		multi = new JButton("같이하기");
+		exit = new JButton("나가기");
+
+		single.setPreferredSize(new Dimension(120, 35)); 
+		/*single.setSize(100, 100);
+		multi.setSize(100, 100);
+		exit.setSize(100, 100);*/
+
+		
+		eastPane= new JPanel();
+		westPane= new JPanel();
+		centerPane = new JPanel();
+		northPane = new JPanel();
+		southPane = new JPanel();
+		southPaneBtn = new JPanel();
+		
+		southPane.setPreferredSize(new Dimension(600, 200));
+		southPane.getLocation(new Point(0,400));
+		GridLayout grid = new GridLayout(3,1);
+		southPane.add(southPaneBtn);
+		southPaneBtn.setLayout(grid);
+		grid.setVgap(23);
+		
+		southPaneBtn.add(single);
+		southPaneBtn.add(multi);
+		southPaneBtn.add(exit);
+
+		/*centerPane.setLayout(new GridLayout(3,1));
+		centerPane.add(single);
+		centerPane.add(multi);
+		centerPane.add(exit);*/
+		
+		
+		this.add(eastPane, BorderLayout.EAST);
+		this.add(westPane, BorderLayout.WEST);
+		this.add(centerPane, BorderLayout.CENTER);
+		this.add(southPane, BorderLayout.SOUTH);
+		this.add(northPane, BorderLayout.NORTH);
+		/*ImageIcon img = new ImageIcon("images/38dd.jpg");
+		JLabel imageLabel = new JLabel(img);*/
+//		this.add(imageLabel);
+		
+		
+		
+		this.setVisible(true);
+		
+	}
+	
+	public static void main(String[] args) {
+		new FirstPage();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
