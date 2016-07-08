@@ -10,7 +10,6 @@ public class FirstPage extends JFrame implements ActionListener{
 	private JButton single, multi, exit;
 	private JPanel centerPane, southPane, northPane, eastPane, westPane, southPaneBtn;
 	
-	//수정되나?????
 	
 	public FirstPage(){
 		this.setTitle("짝 맞추기 게임 - by.PLUS");
