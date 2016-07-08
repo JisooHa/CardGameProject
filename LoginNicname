@@ -1,0 +1,68 @@
+package Login;
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import javax.swing.event.*;
+
+import java.io.*;
+
+
+public class NicnameDialog extends JDialog implements ActionListener{ 
+	private JTextField Nicname;
+	private JButton loginBtn, closeBtn;
+	private JPanel centerPane, southPane;
+	
+	public NicnameDialog(){
+		//반드시 창이 닫아 져야 다음이 실행됨
+		this.setModal(true);
+		this.setLocation(new Point(100,100));
+		this.setSize(new Dimension(300,100)); //Dimension : width, height값지정
+		this.setLayout(new BorderLayout());
+		
+		
+		centerPane = new JPanel();
+		
+		//centerPane 에 붙일 것들
+		Nicname = new JTextField(20); //가로넓이 지정
+		centerPane.setLayout(new FlowLayout());
+		centerPane.setLocation(0, 70);
+		centerPane.add(new JLabel("아이디 : "));
+		centerPane.add(Nicname);
+		
+		
+		southPane = new JPanel();
+		
+		//southPane 에 붙일 것들
+		loginBtn =new JButton("로그인");
+		closeBtn = new JButton("닫기");
+		southPane.add(loginBtn);
+		southPane.add(closeBtn);
+		
+		loginBtn.addActionListener(this);
+		closeBtn.addActionListener(this);
+		
+		this.add(centerPane, BorderLayout.CENTER);
+		this.add(southPane, BorderLayout.SOUTH);
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent event) {
+		// 버튼 클릭시 동작 처리
+		switch(event.getActionCommand()){
+		case "닫기" : this.setVisible(false); break;
+		case "로그인": String userId = Nicname.getText();
+					/*User loginUser = new MainController().loginController(userId, userPwd);
+					if(loginUser != null)
+						frame.showUser(loginUser);
+					else{	
+						frame.errorDisplay("아이다나 암호가 일치하지 않습니다.");
+						return;}
+					this.setVisible(false);*/
+					break;
+					
+		}
+		
+	}
+}
